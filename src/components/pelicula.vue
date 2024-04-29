@@ -1,24 +1,28 @@
 <template>
- <!-- Código HTML -->
- <div id="base-component"><nombre-componente></nombre-componente></div>
+  <div @click="$emit('clickPelicula')">
+    <img :src='imagen' alt="Imagen de la película" />
+    <h2>{{ titulo }}</h2>
+    <p>{{ descripcion }}</p>
+  </div>
 </template>
 <script>
- //Defincion de componente estilo Option API Vue2+ y Vue3
- import NombreComponente from './components/NombreComponente.vue'
  export default {
    // Establece un nombre al componente. De lo contrario aparece como "Anónimo" en DevTools.
-   name: "base-component",
-   component: { NombreComponente, }, // Lista de los componentes que se usan en el template
+   name: "carta_pelicula",
    // Lista de atributos (props) aceptados desde el componente padre.
-   props: {},
-   // Función que devuelve un  con las variables del componente Vue.
+   props: {
+      imagen: String,
+      titulo: String,
+      descripcion: String,
+    },
    data() {
-     return {};
+      return {};
    },
    // Lista de funciones que se ejecutarán cuando se acceda a la propiedad en cuestión.
    computed: {},
    // Lista de funciones (métodos) disponibles en el componente Vue.
-   methods: {},
+   methods: {
+   },
  };
 </script>
 <style>/* Estilos CSS */</style>
