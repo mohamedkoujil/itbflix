@@ -2,7 +2,7 @@
   <div class="peli-container justify-between" @click="$emit('clickPelicula')">
     <img :src="require(`../assets/${imagen}`)" alt="Imagen de la película" />
     <h2>{{ titulo }}</h2>
-    <div>{{ puntuacion }}</div>
+    <div class="puntuacio">{{ puntuacion }}</div>
   </div>
 </template>
 <script>
@@ -35,9 +35,10 @@
     margin: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: -1px 1px 5px rgb(255, 0, 191);
     cursor: pointer;
     transition: 0.3s;
+    background-color: yellow;
   }
   .peli-container img {
     border-radius: 5px;
@@ -46,17 +47,23 @@
   }
 
   .peli-container:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transform: scale(1.01);
+    box-shadow:  -12px 12px 18px rgb(255, 0, 191);
+    transform: translate(6px, -8px);
   }
+
   img {
     width: 100%;
   }
   h2 {
     font-size: 1.5em;
+    color: rgb(255, 0, 191);
+    margin: auto;
+    text-shadow: 0px 0px 3px rgb(0, 255, 255);
   }
-  p {
+  .puntuacio {
     font-size: 1.2em;
+    margin: 0 -10px -10px -10px;
+    background-color: aqua;
   }
 
   .justify-between {
