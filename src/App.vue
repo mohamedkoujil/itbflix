@@ -1,7 +1,6 @@
 <template>
-  <img :src="srcImg" alt="Vue logo"/>
   <carta_pelicula 
-    :imagen = srcImg 
+    :imagen = img
     titulo="Pelicula 1" 
     descripcion="Descripción de la película 1"
     @clickPelicula="clicDiv"
@@ -15,7 +14,7 @@ export default {
   name: 'App',
   data() {
     return {
-      srcImg: './assets/logo.png'
+      img: "logo.png"
     }
   },
   components: {

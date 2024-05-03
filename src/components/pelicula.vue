@@ -1,6 +1,7 @@
 <template>
   <div @click="$emit('clickPelicula')">
-    <img :src='imagen' alt="Imagen de la película" />
+    <div>{{ imagen }}</div>
+    <img :src="require(`../assets/${imagen}`)" alt="Imagen de la película" />
     <h2>{{ titulo }}</h2>
     <p>{{ descripcion }}</p>
   </div>
