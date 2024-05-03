@@ -1,10 +1,19 @@
 <template>
-  <carta_pelicula 
-    :imagen = img
-    titulo="Pelicula 1" 
-    descripcion="Descripción de la película 1"
-    @clickPelicula="clicDiv"
-  />
+  <section class="flex wrap center">
+    <carta_pelicula 
+      imagen = "sawx.jpg"
+      titulo="Saw X" 
+      puntuacion="5.8/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_pelicula 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+  </section>
 </template>
 
 <script>
@@ -14,7 +23,7 @@ export default {
   name: 'App',
   data() {
     return {
-      img: "logo.png"
+      img: ""
     }
   },
   components: {
@@ -37,5 +46,18 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.flex {
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.center{
+  justify-content: center;
+  align-items: center;
 }
 </style>

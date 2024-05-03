@@ -1,9 +1,8 @@
 <template>
-  <div @click="$emit('clickPelicula')">
-    <div>{{ imagen }}</div>
+  <div class="peli-container justify-between" @click="$emit('clickPelicula')">
     <img :src="require(`../assets/${imagen}`)" alt="Imagen de la película" />
     <h2>{{ titulo }}</h2>
-    <p>{{ descripcion }}</p>
+    <div>{{ puntuacion }}</div>
   </div>
 </template>
 <script>
@@ -14,7 +13,7 @@
    props: {
       imagen: String,
       titulo: String,
-      descripcion: String,
+      puntuacion: String,
     },
    data() {
       return {};
@@ -26,4 +25,41 @@
    },
  };
 </script>
-<style>/* Estilos CSS */</style>
+<style>
+  .peli-container {
+    display: flex;
+    flex-direction: column;
+    width: 225px;
+    height: 400px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .peli-container img {
+    border-radius: 5px;
+    width: 100%;
+    height: 60%;
+  }
+
+  .peli-container:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
+  }
+  img {
+    width: 100%;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  p {
+    font-size: 1.2em;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+</style>
