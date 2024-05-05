@@ -29,8 +29,8 @@
   .peli-container {
     display: flex;
     flex-direction: column;
-    width: 225px;
-    height: 400px;
+    width: 160px;
+    height: 305px;
     padding: 10px;
     margin: 10px;
     border: 1px solid #ccc;
@@ -51,11 +51,11 @@
     transform: translate(6px, -8px);
   }
 
-  img {
+  .peli-container   img {
     width: 100%;
   }
-  h2 {
-    font-size: 1.5em;
+  .peli-container h2 {
+    font-size: 1.2em;
     color: rgb(255, 0, 191);
     margin: auto;
   }
