@@ -56,9 +56,8 @@
   }
   h2 {
     font-size: 1.5em;
-    color: rgb(255, 12, 194);
+    color: rgb(255, 0, 191);
     margin: auto;
-    text-shadow: 0px 0px 3px rgb(189, 0, 142)
   }
   .puntuacio {
     font-size: 1.2em;

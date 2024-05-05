@@ -13,6 +13,62 @@
       puntuacion="6.7/10"
       @clickPelicula="clicDiv"
     />
+
+    <carta_pelicula 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_pelicula 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_pelicula 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_pelicula 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_pelicula 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_pelicula 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_pelicula 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_pelicula 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
   </section>
 </template>
 

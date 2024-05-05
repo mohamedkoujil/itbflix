@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-  <body>
+  <body onload="init()">
     <header>
       <nav class="flex center">
         <ul class="flex center">
@@ -25,4 +25,13 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script>
+    function init() {
+      blinkH1();
+    }
+    function blinkH1() {
+      let h1 = document.querySelector('header h1');
+      
+    }
+  </script>
 </html>
