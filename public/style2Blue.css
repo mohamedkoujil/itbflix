@@ -83,15 +83,6 @@ li:hover {
     background-color: rgba(0, 255, 204, 0.075); /* Cambiado a un tono de cian */
 }
 
-aside {
-    background-color: #00ffcc; /* Cambiado a un tono de cian */
-    padding: 14px;
-    border-radius: 5px;
-    box-shadow: #00ffcc 0 0 12px; /* Cambiado a un tono de cian */
-    float: left;
-    width: 20%;
-}
-
 /*componente pelicula */
 .peli-container {
     display: flex;
@@ -135,4 +126,117 @@ aside {
     background-color: #00ffcc; /* Cambiado a un tono de cian */
     padding: 6px;
 }
-    
+   
+/* Aside
+-------------------------------------------------------------------- */
+
+aside {
+    background-color: #00ffcc; /* Cambiado a un tono de cian */
+    padding: 14px;
+    border-radius: 5px;
+    box-shadow: #00ffcc 0 0 12px; /* Cambiado a un tono de cian */
+    float: left;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+aside h3 {
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    font-weight: bold;
+    color: #102c54;
+    text-align: center;
+}
+
+aside .artículosAside {
+    width: 95%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 10px;
+    overflow: scroll;
+    background-color: #102c54;
+    border-radius: 5px;
+}
+
+aside .artículosAside article h4{
+    width: auto;
+    height: auto;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    text-align: center;
+    background-color: #102c54;
+}
+
+aside .artículosAside article ul li {
+    width: auto;
+    height: auto;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-color: #102c54;
+}
+
+aside .artículosAside article img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    background-color: #102c54;
+}
+
+/* Footer
+-------------------------------------------------------------------- */
+
+footer {
+    width: 100%;
+    height: auto;
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+footer .contacto {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: white;
+ }
+
+footer .contacto .RRSS {
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+ }
+
+footer .contacto address {
+    width: 30%;
+    height: auto;
+    text-align: center;
+    color: white;
+ }
+
+footer .contacto .copyright {
+    width: 30%;
+    height: auto;
+    text-align: center;
+    color: white;
+ }

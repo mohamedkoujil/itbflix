@@ -165,6 +165,10 @@ export default {
   margin-top: 60px;
 }
 
+h1 {
+  color: #CCC;
+}
+
 .flex {
   display: flex;
 }
