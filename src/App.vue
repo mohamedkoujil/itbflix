@@ -105,29 +105,34 @@
       <carta_actor
       imagen="leonardo_dicaprio.webp"
       nombre="Leonardo DiCaprio"
-      puntuacion="9.0"
+      puntuacion="9.0/10"
       @clickActor="clickActor"
       />
 
     <carta_actor
       imagen="scarlett_johansson.jpg"
       nombre="Scarlett Johansson"
-      puntuacion="8.7"
+      puntuacion="8.7/10"
       @clickActor="clickActor"
       />
 
     <carta_actor
       imagen="christina_ricci.jpg"
       nombre="Christina Ricci"
-      puntuacion="8.5"
+      puntuacion="8.5/10"
       @clickActor="clickActor"
       />
+    </section>
+    <h1>Top 10 series más populares</h1>
+    <section class="top-diez-series">
+      <top_series />
     </section>
 </template>
 
 <script>
-import carta_pelicula from './components/pelicula.vue'
-import carta_actor from './components/actor.vue'
+import carta_pelicula from './components/pelicula.vue';
+import carta_actor from './components/actor.vue';
+import top_series from './components/top-series.vue';
 
 export default {
   name: 'App',
@@ -138,7 +143,8 @@ export default {
   },
   components: {
     carta_pelicula,
-    carta_actor
+    carta_actor,
+    top_series
   },
   methods: {
     clicDiv() {
@@ -175,7 +181,17 @@ export default {
 .featured-actors {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 12px rgb(255, 0, 191);
+  background-color: #102c54
+}
+
+.top-diez-series {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0px 0px 12px rgb(255, 0, 191);

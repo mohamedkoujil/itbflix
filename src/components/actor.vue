@@ -54,6 +54,6 @@ h2 {
 
 .puntuacion {
   font-size: 1em;
-  color: aqua;
+  color: #00ffcc;
 }
 </style>
