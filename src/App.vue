@@ -73,12 +73,11 @@
   </section>
 
   <h1>Actores destacados</h1>
-    <section class="flex wrap center">
+    <section class="featured-actors">
       <carta_actor 
         imagen="cate_blanchett.webp"
         nombre="Cate Blanchett" 
         puntuacion="8.5/10"
-        :peliculas="['El señor de los anillos', 'Carol', 'Blue Jasmine']"
         @clickActor="clicDiv"
       />
 
@@ -86,7 +85,6 @@
         imagen="ewan_mcgregor.webp"
         nombre="Ewan McGregor"
         puntuacion="8.3/10"
-        :peliculas="['Trainspotting', 'Moulin Rouge!', 'Star Wars']"
         @clickActor="clicDiv"
       />
 
@@ -94,7 +92,6 @@
         imagen="johnny_depp.webp"
         nombre="Johnny Depp"
         puntuacion="7.9/10"
-        :peliculas="['Piratas del Caribe', 'Eduardo Manostijeras', 'Charlie y la fábrica de chocolate']"
         @clickActor="clicDiv"
       />
 
@@ -102,7 +99,6 @@
         imagen="helena_bonham_carter.webp"
         nombre="Helena Bonham Carter"
         puntuacion="8.0/10"
-        :peliculas="['El discurso del rey', 'Harry Potter', 'Fight Club']"
         @clickActor="clicDiv"
       />
 
@@ -110,7 +106,6 @@
       imagen="leonardo_dicaprio.webp"
       nombre="Leonardo DiCaprio"
       puntuacion="9.0"
-      :peliculas="['Titanic', 'El lobo de Wall Street', 'Origen']"
       @clickActor="clickActor"
       />
 
@@ -118,7 +113,6 @@
       imagen="scarlett_johansson.jpg"
       nombre="Scarlett Johansson"
       puntuacion="8.7"
-      :peliculas="['Avengers: Endgame', 'Lost in Translation', 'Jojo Rabbit']"
       @clickActor="clickActor"
       />
 
@@ -126,7 +120,6 @@
       imagen="christina_ricci.jpg"
       nombre="Christina Ricci"
       puntuacion="8.5"
-      :peliculas="['Sleepy Hollow', 'Monster', 'La familia Addams']"
       @clickActor="clickActor"
       />
     </section>
@@ -177,5 +170,15 @@ export default {
 .center{
   justify-content: center;
   align-items: center;
+}
+
+.featured-actors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 12px rgb(255, 0, 191);
+  background-color: #102c54
 }
 </style>
