@@ -197,6 +197,34 @@
       puntuacion="8.9/10"
       @clickSerie="clicDiv"
     />
+
+    <carta_serie 
+      imagen = "the_witcher.webp"
+      titulo="The Witcher"
+      puntuacion="8.6/10"
+      @clickSerie="clicDiv"
+    />
+
+    <carta_serie 
+      imagen = "stranger_things.jpg"
+      titulo="Stranger things"
+      puntuacion="8.5/10"
+      @clickSerie="clicDiv"
+    />
+
+    <carta_serie 
+      imagen = "wednesday.jpg"
+      titulo="Wedneday"
+      puntuacion="7.9/10"
+      @clickSerie="clicDiv"
+    />
+
+    <carta_serie 
+      imagen = "the_last_of_us.jpg"
+      titulo="The Last Of Us"
+      puntuacion="9.1/10"
+      @clickSerie="clicDiv"
+    />
   </section>
 
     <h1>Top 10 series más populares</h1>
