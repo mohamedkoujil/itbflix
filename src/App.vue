@@ -129,73 +129,73 @@
   <h1>Series destacadas</h1>
   <section class="flex wrap center">
     <carta_serie 
-      imagen = "sawx.jpg"
-      titulo="Saw X" 
-      puntuacion="5.8/10"
-      @clickPelicula="clicDiv"
+      imagen = "ahsoka_series.jpg"
+      titulo="Ahsoka" 
+      puntuacion="8.8/10"
+      @clickSerie="clicDiv"
     />
 
     <carta_serie 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
+      imagen = "el_exorcista_creyente.jpg"
+      titulo="El Exorcista Creyente"
       puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
+      @clickSerie="clicDiv"
     />
 
     <carta_serie 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
+      imagen = "gen_v.jpg"
+      titulo="Gen V"
+      puntuacion="7.5/10"
+      @clickSerie="clicDiv"
     />
 
     <carta_serie 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
+      imagen = "loki.jpg"
+      titulo="Loki"
+      puntuacion="9.8/10"
+      @clickSerie="clicDiv"
     />
 
     <carta_serie 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
+      imagen = "nowhere.jpg"
+      titulo="Nowhere"
+      puntuacion="7.8/10"
+      @clickSerie="clicDiv"
     />
 
     <carta_serie 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
+      imagen = "reptile.jpg"
+      titulo="Reptile"
+      puntuacion="5.5/10"
+      @clickSerie="clicDiv"
     />
 
     <carta_serie 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
+      imagen = "sex_education.jpg"
+      titulo="Sex Education"
+      puntuacion="9/10"
+      @clickSerie="clicDiv"
     />
 
     <carta_serie 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
+      imagen = "the_continental.jpg"
+      titulo="The Continental"
+      puntuacion="8.2/10"
+      @clickSerie="clicDiv"
     />
 
     <carta_serie 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
+      imagen = "the_creator.jpg"
+      titulo="The Creator"
+      puntuacion="7.7/10"
+      @clickSerie="clicDiv"
     />
 
     <carta_serie 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
+      imagen = "vikings.jpg"
+      titulo="Vikings"
+      puntuacion="8.9/10"
+      @clickSerie="clicDiv"
     />
   </section>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="serie-container justify-between" @click="$emit('clickserie')">
+    <div class="serie-container justify-between" @click="$emit('clickSerie')">
       <img :src="require(`../assets/${imagen}`)" alt="Imagen de la serie" />
       <h2>{{ titulo }}</h2>
       <div class="puntuacio">{{ puntuacion }}</div>
