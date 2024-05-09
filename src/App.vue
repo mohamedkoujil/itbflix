@@ -1,4 +1,6 @@
 <template>
+  <aside_component />
+  
   <h1>Películas destacadas</h1>
   <section class="flex wrap center">
     <carta_pelicula 
@@ -124,7 +126,78 @@
       />
     </section>
 
-    <aside_component />
+  <h1>Series destacadas</h1>
+  <section class="flex wrap center">
+    <carta_serie 
+      imagen = "sawx.jpg"
+      titulo="Saw X" 
+      puntuacion="5.8/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_serie 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_serie 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_serie 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_serie 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_serie 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_serie 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_serie 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_serie 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+
+    <carta_serie 
+      imagen = "star_wars_despertar_fuerza.jpg"
+      titulo="Star Wars: El despertar de la fuerza"
+      puntuacion="6.7/10"
+      @clickPelicula="clicDiv"
+    />
+  </section>
 
     <h1>Top 10 series más populares</h1>
     <section class="top-diez-series">
@@ -138,6 +211,7 @@
 import carta_pelicula from './components/pelicula.vue';
 import carta_actor from './components/actor.vue';
 import aside_component from './components/aside.vue';
+import carta_serie from './components/serie.vue';
 import top_series from './components/top-series.vue';
 import footer_component from './components/footer.vue';
 
@@ -152,6 +226,7 @@ export default {
     carta_pelicula,
     carta_actor,
     aside_component,
+    carta_serie,
     top_series,
     footer_component
   },

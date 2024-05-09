@@ -47,8 +47,7 @@
   
   ul {
     display: flex;
-    flex-wrap: wrap;
-    justify-content:center;
+    justify-content:space-between;
     align-items: center;
     list-style: none;
     margin: 10px 20px 10px 20px;
@@ -65,19 +64,17 @@
   }
   
   .rank {
-    margin-right: 10px;
     font-weight: bold;
   }
   
   .title {
-    margin-left: 10px;
     font-weight: bold;
     color: #CCC;
   }
   
   .cover {
-    width: 150px;
-    height: 200px;
+    width: 100px;
+    height: 150px;
     object-fit: cover;
     border-radius: 5px;
   }

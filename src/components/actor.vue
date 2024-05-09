@@ -21,7 +21,7 @@
   
 <style>
 .actor-container {
-  height: 240px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,7 +33,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 200px;
+  width: 150px;
   height: 200px;
 }
 
