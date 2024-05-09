@@ -123,16 +123,23 @@
       @clickActor="clickActor"
       />
     </section>
+
+    <aside_component />
+
     <h1>Top 10 series más populares</h1>
     <section class="top-diez-series">
       <top_series />
     </section>
+
+    <footer_component />
 </template>
 
 <script>
 import carta_pelicula from './components/pelicula.vue';
 import carta_actor from './components/actor.vue';
+import aside_component from './components/aside.vue';
 import top_series from './components/top-series.vue';
+import footer_component from './components/footer.vue';
 
 export default {
   name: 'App',
@@ -144,7 +151,9 @@ export default {
   components: {
     carta_pelicula,
     carta_actor,
-    top_series
+    aside_component,
+    top_series,
+    footer_component
   },
   methods: {
     clicDiv() {
