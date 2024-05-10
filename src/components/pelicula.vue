@@ -1,5 +1,11 @@
 <template>
-  <div class="peli-container justify-between" @click="$emit('clickPelicula')">
+  <div v-if="api" class="peli-container justify-between" @click="$emit('clickPelicula')">
+    <img :src="imagen" alt="Imagen de la película" />
+    <h2>{{ titulo }}</h2>
+    <div class="puntuacio">{{ puntuacion }}</div>
+  </div>
+  
+  <div v-else class="peli-container justify-between" @click="$emit('clickPelicula')">
     <img :src="require(`../assets/${imagen}`)" alt="Imagen de la película" />
     <h2>{{ titulo }}</h2>
     <div class="puntuacio">{{ puntuacion }}</div>
@@ -14,9 +20,14 @@
       imagen: String,
       titulo: String,
       puntuacion: String,
+      api: Boolean
     },
    data() {
       return {};
+   },
+   created() {
+     console.log(this.imagen);
+     console.log(this.api);
    },
    // Lista de funciones que se ejecutarán cuando se acceda a la propiedad en cuestión.
    computed: {},
@@ -35,7 +46,7 @@
   margin: 10px;
   border: 1px solid #00ffcc; 
   border-radius: 5px;
-  box-shadow: 0px 0px 12px #00ffcc; 
+  box-shadow: 0px 0px 5px #00ffcc; 
   cursor: pointer;
   transition: 0.3s;
   background-color: #04042e; 
@@ -48,8 +59,7 @@
 }
 
 .peli-container:hover {
-  box-shadow:  -7px 8px 9px #00ffcc; 
-  transform: translate(6px, -8px);
+  box-shadow:  0px 0px 20px #00ffcc; 
 }
 
 .peli-container img {
