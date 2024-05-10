@@ -1,5 +1,10 @@
 <template>
   <aside_component />
+  <header>
+    <buscador_component>
+
+    </buscador_component>
+  </header>
   
   <h1>Películas destacadas</h1>
   <section id="peliculas" class="flex wrap center">
@@ -197,6 +202,7 @@ import aside_component from './components/aside.vue';
 import carta_serie from './components/serie.vue';
 import top_series from './components/top-series.vue';
 import footer_component from './components/footer.vue';
+import buscador_component from './components/buscador.vue';
 
 export default {
   name: 'App',
@@ -212,7 +218,8 @@ export default {
     aside_component,
     carta_serie,
     top_series,
-    footer_component
+    footer_component,
+    buscador_component
   },
   created() {
     this.apiMovies();

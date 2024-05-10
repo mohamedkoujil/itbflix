@@ -38,7 +38,7 @@
   
 <style>
   aside {
-    background-color: #00ffcc;
+    background-color: #04042e;
     padding: 14px;
     border-radius: 5px;
     box-shadow: #00ffcc 0 0 12px;
@@ -46,8 +46,9 @@
     width: 20%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-right: 20px;
-    color: #04042e
+    color: #00ffcc;
   }
   
   aside h3 {
@@ -56,6 +57,7 @@
     padding-bottom: 25px;
     padding-left: 25px;
     font-weight: bold;
+    color: #00ffcc;
 
 }
 
@@ -65,7 +67,7 @@ aside .artículosAside {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #blñack;
+    color: #00ffcc;
     margin: 10px 0 10px 0;
 }
 
@@ -84,5 +86,6 @@ aside .artículosAside article img {
     height: auto;
     object-fit: cover;
     object-position: center;
+    box-shadow: #00ffcc 0 0 12px;
 }
 </style>
