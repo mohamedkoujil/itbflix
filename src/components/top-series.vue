@@ -1,13 +1,11 @@
 <template>
-    <div class="top-series">
-      <ul>
-        <li v-for="(serie, index) in topSeries" :key="serie.id">
+    <div class="top-series-container" v-for="(serie, index) in topSeries" :key="serie.id">
+        <div class="card">
           <span class="rank">{{ index + 1 }}</span>
           <img class="cover" :src="serie.image.medium" :alt="serie.name" />
           <span class="title">{{ serie.name }}</span>
           <span class="rating">Calificación: {{ serie.rating.average }}/10</span>
-        </li>
-      </ul>
+        </div>
     </div>
   </template>
   
@@ -41,26 +39,28 @@
   </script>
   
   <style>
-  .top-series {
+  .top-series-container {
     margin-top: 20px;
   }
   
-  ul {
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    list-style: none;
-    margin: 10px 20px 10px 20px;
-  }
-  
-  li {
-    margin-bottom:0 10px 0 10px;
+  .card {
+    margin:0 10px 18px 10px;
     display: flex;
     flex-direction:column;
-    justify-content: space-between;
-    align-items: center;
     background-color:#1e3d6f;
+    align-items: center;
     color: #CCC;
+    border-radius: 5px;
+    padding: 5px;
+    height: 16em;
+    width: 7em;
+    box-shadow: 0px 0px 4px #00ffcc;
+    transition: 0.3s;
+  }
+
+  .card:hover {
+    box-shadow: 0px 0px 12px #00ffcc;
+    cursor: pointer;
   }
   
   .rank {
@@ -75,7 +75,6 @@
   .cover {
     width: 100px;
     height: 150px;
-    object-fit: cover;
     border-radius: 5px;
   }
   

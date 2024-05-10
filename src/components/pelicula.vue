@@ -26,45 +26,48 @@
  };
 </script>
 <style>
-  .peli-container {
-    display: flex;
-    flex-direction: column;
-    width: 160px;
-    height: 305px;
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0px 0px 12px rgb(255, 0, 191);
-    cursor: pointer;
-    transition: 0.3s;
-    background-color: yellow;
-  }
-  .peli-container img {
-    border-radius: 5px;
-    width: 100%;
-    height: 60%;
-  }
+.peli-container {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  height: 305px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #00ffcc; 
+  border-radius: 5px;
+  box-shadow: 0px 0px 12px #00ffcc; 
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #04042e; 
+}
 
-  .peli-container:hover {
-    box-shadow:  -7px 8px 9px rgb(255, 0, 191);
-    transform: translate(6px, -8px);
-  }
+.peli-container img {
+  border-radius: 5px;
+  width: 100%;
+  height: 60%;
+}
 
-  .peli-container   img {
-    width: 100%;
-  }
-  .peli-container h2 {
-    font-size: 1.2em;
-    color: rgb(255, 0, 191);
-    margin: auto;
-  }
-  .puntuacio {
-    font-size: 1.2em;
-    margin: 0 -10px -10px -10px;
-    background-color: aqua;
-    padding: 6px;
-  }
+.peli-container:hover {
+  box-shadow:  -7px 8px 9px #00ffcc; 
+  transform: translate(6px, -8px);
+}
+
+.peli-container img {
+  width: 100%;
+}
+
+.peli-container h2 {
+  font-size: 1.2em;
+  color: #00ffcc; 
+  margin: auto;
+}
+
+.puntuacio {
+  font-size: 1.2em;
+  margin: 0 -10px -10px -10px;
+  background-color: #00ffcc; 
+  padding: 6px;
+}
 
   .justify-between {
     justify-content: space-between;

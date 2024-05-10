@@ -33,12 +33,13 @@
       height: 305px;
       padding: 10px;
       margin: 10px;
-      border: 1px solid #ccc;
+
+      border: 1px solid #00ffcc; 
       border-radius: 5px;
-      box-shadow: 0px 0px 12px rgb(255, 0, 191);
+      box-shadow: 0px 0px 12px #00ffcc; 
       cursor: pointer;
       transition: 0.3s;
-      background-color: yellow;
+      background-color: #04042e; 
     }
     .serie-container img {
       border-radius: 5px;
@@ -47,16 +48,17 @@
     }
   
     .serie-container:hover {
-      box-shadow:  -7px 8px 9px rgb(255, 0, 191);
+      box-shadow:  -7px 8px 9px #00ffcc; 
       transform: translate(6px, -8px);
     }
   
     .serie-container   img {
       width: 100%;
     }
+
     .serie-container h2 {
       font-size: 1.2em;
-      color: rgb(255, 0, 191);
+      color: #00ffcc; 
       margin: auto;
     }
     .puntuacio {

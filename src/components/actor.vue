@@ -43,7 +43,7 @@
   border-radius: 50%;
   margin: 10px 0 10px 0;
   border: 1px solid #ccc;
-  box-shadow: 0px 0px 12px rgb(255, 0, 191);
+  box-shadow: 0px 0px 12px #00ffcc;
 }
 
 h2 {

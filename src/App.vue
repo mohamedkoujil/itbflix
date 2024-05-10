@@ -300,7 +300,7 @@ h1 {
   justify-content: space-around;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0px 0px 12px rgb(255, 0, 191);
+  box-shadow: 0px 0px 12px #00ffcc;
   background-color: #102c54
 }
 
@@ -310,7 +310,7 @@ h1 {
   justify-content: space-around;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0px 0px 12px rgb(255, 0, 191);
+  box-shadow: 0px 0px 12px #00ffcc;
   background-color: #102c54
 }
 </style>
