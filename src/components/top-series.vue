@@ -41,6 +41,7 @@
   <style>
   .top-series-container {
     margin-top: 20px;
+    display: flex;
   }
   
   .card {

@@ -1,8 +1,14 @@
 <template>
   <aside_component />
+  <header>
+    <buscador_component>
+
+    </buscador_component>
+  </header>
   
   <h1>Películas destacadas</h1>
-  <section class="flex wrap center">
+  <section id="peliculas" class="flex wrap center">
+    <!--2 Cartes introduides manualment-->
     <carta_pelicula 
       imagen = "sawx.jpg"
       titulo="Saw X" 
@@ -17,61 +23,15 @@
       @clickPelicula="clicDiv"
     />
 
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
-
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
-
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
-
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
-
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
-
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
-
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
-
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
+    <div v-for="movie in movies" :key="movie.id">
+      <carta_pelicula 
+        :imagen="'https://image.tmdb.org/t/p/original' + movie.poster_path"
+        :titulo="movie.original_title" 
+        :puntuacion="`${movie.vote_average}/10`"
+        :api="true"
+        @clickPelicula="clicDiv"
+      />
+    </div>
   </section>
 
   <h1>Actores destacados</h1>
@@ -242,12 +202,14 @@ import aside_component from './components/aside.vue';
 import carta_serie from './components/serie.vue';
 import top_series from './components/top-series.vue';
 import footer_component from './components/footer.vue';
+import buscador_component from './components/buscador.vue';
 
 export default {
   name: 'App',
   data() {
     return {
-      img: ""
+      img: "",
+      movies: [],
     }
   },
   components: {
@@ -256,12 +218,30 @@ export default {
     aside_component,
     carta_serie,
     top_series,
-    footer_component
+    footer_component,
+    buscador_component
+  },
+  created() {
+    this.apiMovies();
   },
   methods: {
     clicDiv() {
       console.log("Clic en el div");
     },
+
+    async apiMovies() {
+        try {
+          const response = await fetch('https://api.themoviedb.org/3/trending/movie/day?api_key=802067a2adc0838122b3ec68940d51d0');
+          if (!response.ok) {
+            throw new Error('No se pudieron obtener las peliculas.');
+          }
+          const data = await response.json();
+          console.log(data);
+          this.movies = data.results;
+        } catch (error) {
+          console.error('Error al obtener las series:', error);
+        }
+      },
   
   },
 }

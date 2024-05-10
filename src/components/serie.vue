@@ -36,7 +36,7 @@
 
       border: 1px solid #00ffcc; 
       border-radius: 5px;
-      box-shadow: 0px 0px 12px #00ffcc; 
+      box-shadow: 0px 0px 4px #00ffcc; 
       cursor: pointer;
       transition: 0.3s;
       background-color: #04042e; 
@@ -48,8 +48,7 @@
     }
   
     .serie-container:hover {
-      box-shadow:  -7px 8px 9px #00ffcc; 
-      transform: translate(6px, -8px);
+      box-shadow:  0px 0px 20px #00ffcc; 
     }
   
     .serie-container   img {
