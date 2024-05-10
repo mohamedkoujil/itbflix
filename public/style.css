@@ -82,69 +82,47 @@ li:hover {
     color: #ffffff; /* Texto principal blanco */
     background-color: rgba(0, 255, 204, 0.075); /* Cambiado a un tono de cian */
 }
-/* Aside
--------------------------------------------------------------------- */
 
-aside {
-    background-color: #00ffcc; /* Cambiado a un tono de cian */
-    padding: 14px;
-    border-radius: 5px;
-    box-shadow: #00ffcc 0 0 12px; /* Cambiado a un tono de cian */
-    float: left;
-    width: 20%;
+/*componente pelicula */
+.peli-container {
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
-}
-
-aside h3 {
-    padding-top: 25px;
-    padding-right: 25px;
-    padding-bottom: 25px;
-    padding-left: 25px;
-    font-weight: bold;
-    color: #102c54;
-    text-align: center;
-}
-
-aside .artículosAside {
-    width: 95%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
+    width: 160px;
+    height: 305px;
     padding: 10px;
-    overflow: scroll;
-    background-color: #102c54;
+    margin: 10px;
+    border: 1px solid #00ffcc; /* Cambiado a un tono de cian */
     border-radius: 5px;
+    box-shadow: 0px 0px 12px #00ffcc; /* Cambiado a un tono de cian */
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #04042e; /* Cambiado a un azul oscuro */
 }
 
-aside .artículosAside article h4{
-    width: auto;
-    height: auto;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    text-align: center;
-    background-color: #102c54;
-}
-
-aside .artículosAside article ul li {
-    width: auto;
-    height: auto;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    background-color: #102c54;
-}
-
-aside .artículosAside article img {
+.peli-container img {
+    border-radius: 5px;
     width: 100%;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-    background-color: #102c54;
+    height: 60%;
+}
+
+.peli-container:hover {
+    box-shadow:  -7px 8px 9px #00ffcc; /* Cambiado a un tono de cian */
+    transform: translate(6px, -8px);
+}
+
+.peli-container img {
+    width: 100%;
+}
+
+.peli-container h2 {
+    font-size: 1.2em;
+    color: #00ffcc; /* Cambiado a un tono de cian */
+    margin: auto;
+}
+
+.puntuacio {
+    font-size: 1.2em;
+    margin: 0 -10px -10px -10px;
+    background-color: #00ffcc; /* Cambiado a un tono de cian */
+    padding: 6px;
 }
