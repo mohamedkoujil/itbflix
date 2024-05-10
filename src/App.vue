@@ -207,7 +207,7 @@
 
     <carta_serie 
       imagen = "stranger_things.jpg"
-      titulo="Stranger things"
+      titulo="Stranger Things"
       puntuacion="8.5/10"
       @clickSerie="clicDiv"
     />
