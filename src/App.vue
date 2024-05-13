@@ -1,4 +1,6 @@
 <template>
+  <header_component />
+
   <aside_component />
   
   <h1>Películas destacadas</h1>
@@ -236,6 +238,7 @@
 </template>
 
 <script>
+import header_component from './components/header.vue';
 import carta_pelicula from './components/pelicula.vue';
 import carta_actor from './components/actor.vue';
 import aside_component from './components/aside.vue';
@@ -251,6 +254,7 @@ export default {
     }
   },
   components: {
+    header_component,
     carta_pelicula,
     carta_actor,
     aside_component,
