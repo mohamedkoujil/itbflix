@@ -3,6 +3,8 @@
 
   <aside_component />
   
+  <router-view></router-view>
+
   <h1>Películas destacadas</h1>
   <section class="flex wrap center">
     <carta_pelicula 
@@ -239,9 +241,9 @@
 
 <script>
 import header_component from './components/header.vue';
+import aside_component from './components/aside.vue';
 import carta_pelicula from './components/pelicula.vue';
 import carta_actor from './components/actor.vue';
-import aside_component from './components/aside.vue';
 import carta_serie from './components/serie.vue';
 import top_series from './components/top-series.vue';
 import footer_component from './components/footer.vue';
@@ -255,9 +257,9 @@ export default {
   },
   components: {
     header_component,
+    aside_component,
     carta_pelicula,
     carta_actor,
-    aside_component,
     carta_serie,
     top_series,
     footer_component
