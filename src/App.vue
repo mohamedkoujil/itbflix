@@ -1,234 +1,150 @@
 <template>
-  <header_component />
+  <header_component 
+  @clickPeliculas="clickPeliculas" 
+  @clickSeries="clickSeries"
+  @clickTodo="clickTodo"/>
 
-  <aside_component />
-  
-  <router-view></router-view>
+  <aside_component/>
 
-  <h1>Películas destacadas</h1>
-  <section class="flex wrap center">
-    <carta_pelicula 
-      imagen = "sawx.jpg"
-      titulo="Saw X" 
-      puntuacion="5.8/10"
-      @clickPelicula="clicDiv"
-    />
 
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
+  <section v-show="verPelis" class="flex wrap center">
+    <h1>Películas destacadas</h1>
+    <!--Pelicules Introduides manualment-->
+    <div class="flex wrap center">
+      <carta_pelicula 
+        imagen = "sawx.jpg"
+        titulo="Saw X" 
+        puntuacion="5.8/10"
+        @clickPelicula="clicDiv"
+      />
 
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
+      <carta_pelicula 
+        imagen = "star_wars_despertar_fuerza.jpg"
+        titulo="Star Wars: El despertar de la fuerza"
+        puntuacion="6.7/10"
+        @clickPelicula="clicDiv"
+      />
+      <!--Pelicules Introduides usant API-->
+      <div v-for="movie in movies" :key="movie.id">
+        <carta_pelicula 
+          :imagen="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+          :titulo="movie.original_title"
+          :puntuacion='Math.round(movie.vote_average * 10) / 10 + "/10"'
+          :fromApi="true"
+          @clickPelicula="clicDiv"
+        />
+      </div>
+    </div>
+  </section>
 
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
+  <section v-if="!verPelis && verSeries" class="flex wrap center">
+    <h1>Series destacadas</h1>
+    <div class="flex wrap center">
+      <carta_serie 
+        imagen = "ahsoka_series.jpg"
+        titulo="Ahsoka" 
+        puntuacion="8.8/10"
+        @clickSerie="clicDiv"
+      />
 
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
+      <carta_serie 
+        imagen = "el_exorcista_creyente.jpg"
+        titulo="El Exorcista Creyente"
+        puntuacion="6.7/10"
+        @clickSerie="clicDiv"
+      />
 
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
-
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
-
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
-
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
-
-    <carta_pelicula 
-      imagen = "star_wars_despertar_fuerza.jpg"
-      titulo="Star Wars: El despertar de la fuerza"
-      puntuacion="6.7/10"
-      @clickPelicula="clicDiv"
-    />
+      <div v-for="serie in series" :key="serie.id">
+        <carta_serie 
+          :imagen="'https://image.tmdb.org/t/p/w500' + serie.backdrop_path"
+          :titulo="serie.original_name"
+          :puntuacion='Math.round(serie.vote_average * 10) / 10 + "/10"'
+          :fromApi="true"
+          @clickSerie="clicDiv"
+        />
+      </div>
+    </div>
   </section>
 
   <h1>Actores destacados</h1>
-    <section class="featured-actors">
-      <carta_actor 
-        imagen="cate_blanchett.webp"
-        nombre="Cate Blanchett" 
-        puntuacion="8.5/10"
-        @clickActor="clicDiv"
-      />
-
-      <carta_actor 
-        imagen="ewan_mcgregor.webp"
-        nombre="Ewan McGregor"
-        puntuacion="8.3/10"
-        @clickActor="clicDiv"
-      />
-
-      <carta_actor 
-        imagen="johnny_depp.webp"
-        nombre="Johnny Depp"
-        puntuacion="7.9/10"
-        @clickActor="clicDiv"
-      />
-
-      <carta_actor 
-        imagen="helena_bonham_carter.webp"
-        nombre="Helena Bonham Carter"
-        puntuacion="8.0/10"
-        @clickActor="clicDiv"
-      />
-
-      <carta_actor
-      imagen="leonardo_dicaprio.webp"
-      nombre="Leonardo DiCaprio"
-      puntuacion="9.0/10"
-      @clickActor="clickActor"
-      />
-
-    <carta_actor
-      imagen="scarlett_johansson.jpg"
-      nombre="Scarlett Johansson"
-      puntuacion="8.7/10"
-      @clickActor="clickActor"
-      />
-
-    <carta_actor
-      imagen="christina_ricci.jpg"
-      nombre="Christina Ricci"
+  <section class="featured-actors">
+    <carta_actor 
+      imagen="cate_blanchett.webp"
+      nombre="Cate Blanchett" 
       puntuacion="8.5/10"
-      @clickActor="clickActor"
-      />
-    </section>
-
-  <h1>Series destacadas</h1>
-  <section class="flex wrap center">
-    <carta_serie 
-      imagen = "ahsoka_series.jpg"
-      titulo="Ahsoka" 
-      puntuacion="8.8/10"
-      @clickSerie="clicDiv"
+      @clickActor="clicDiv"
     />
 
-    <carta_serie 
-      imagen = "el_exorcista_creyente.jpg"
-      titulo="El Exorcista Creyente"
-      puntuacion="6.7/10"
-      @clickSerie="clicDiv"
+    <carta_actor 
+      imagen="ewan_mcgregor.webp"
+      nombre="Ewan McGregor"
+      puntuacion="8.3/10"
+      @clickActor="clicDiv"
     />
 
-    <carta_serie 
-      imagen = "gen_v.jpg"
-      titulo="Gen V"
-      puntuacion="7.5/10"
-      @clickSerie="clicDiv"
-    />
-
-    <carta_serie 
-      imagen = "loki.jpg"
-      titulo="Loki"
-      puntuacion="9.8/10"
-      @clickSerie="clicDiv"
-    />
-
-    <carta_serie 
-      imagen = "nowhere.jpg"
-      titulo="Nowhere"
-      puntuacion="7.8/10"
-      @clickSerie="clicDiv"
-    />
-
-    <carta_serie 
-      imagen = "reptile.jpg"
-      titulo="Reptile"
-      puntuacion="5.5/10"
-      @clickSerie="clicDiv"
-    />
-
-    <carta_serie 
-      imagen = "sex_education.jpg"
-      titulo="Sex Education"
-      puntuacion="9/10"
-      @clickSerie="clicDiv"
-    />
-
-    <carta_serie 
-      imagen = "the_continental.jpg"
-      titulo="The Continental"
-      puntuacion="8.2/10"
-      @clickSerie="clicDiv"
-    />
-
-    <carta_serie 
-      imagen = "the_creator.jpg"
-      titulo="The Creator"
-      puntuacion="7.7/10"
-      @clickSerie="clicDiv"
-    />
-
-    <carta_serie 
-      imagen = "vikings.jpg"
-      titulo="Vikings"
-      puntuacion="8.9/10"
-      @clickSerie="clicDiv"
-    />
-
-    <carta_serie 
-      imagen = "the_witcher.webp"
-      titulo="The Witcher"
-      puntuacion="8.6/10"
-      @clickSerie="clicDiv"
-    />
-
-    <carta_serie 
-      imagen = "stranger_things.jpg"
-      titulo="Stranger Things"
-      puntuacion="8.5/10"
-      @clickSerie="clicDiv"
-    />
-
-    <carta_serie 
-      imagen = "wednesday.jpg"
-      titulo="Wedneday"
+    <carta_actor 
+      imagen="johnny_depp.webp"
+      nombre="Johnny Depp"
       puntuacion="7.9/10"
-      @clickSerie="clicDiv"
+      @clickActor="clicDiv"
     />
 
-    <carta_serie 
-      imagen = "the_last_of_us.jpg"
-      titulo="The Last Of Us"
-      puntuacion="9.1/10"
-      @clickSerie="clicDiv"
+    <carta_actor 
+      imagen="helena_bonham_carter.webp"
+      nombre="Helena Bonham Carter"
+      puntuacion="8.0/10"
+      @clickActor="clicDiv"
     />
+
+    <carta_actor
+    imagen="leonardo_dicaprio.webp"
+    nombre="Leonardo DiCaprio"
+    puntuacion="9.0/10"
+    @clickActor="clickActor"
+    />
+
+  <carta_actor
+    imagen="scarlett_johansson.jpg"
+    nombre="Scarlett Johansson"
+    puntuacion="8.7/10"
+    @clickActor="clickActor"
+    />
+
+  <carta_actor
+    imagen="christina_ricci.jpg"
+    nombre="Christina Ricci"
+    puntuacion="8.5/10"
+    @clickActor="clickActor"
+    />
+  </section>
+  
+  <section v-show="verSeries && verPelis" class="flex wrap center">
+    <h1>Series destacadas</h1>
+    <div class="flex wrap center">
+      <carta_serie 
+        imagen = "ahsoka_series.jpg"
+        titulo="Ahsoka" 
+        puntuacion="8.8/10"
+        @clickSerie="clicDiv"
+      />
+
+      <carta_serie 
+        imagen = "el_exorcista_creyente.jpg"
+        titulo="El Exorcista Creyente"
+        puntuacion="6.7/10"
+        @clickSerie="clicDiv"
+      />
+
+      <div v-for="serie in series" :key="serie.id">
+        <carta_serie 
+          :imagen="'https://image.tmdb.org/t/p/w500' + serie.backdrop_path"
+          :titulo="serie.original_name"
+          :puntuacion='Math.round(serie.vote_average * 10) / 10 + "/10"'
+          :fromApi="true"
+          @clickSerie="clicDiv"
+        />
+      </div>
+    </div>
   </section>
 
     <h1>Top 10 series más populares</h1>
@@ -252,7 +168,11 @@ export default {
   name: 'App',
   data() {
     return {
-      img: ""
+      img: "",
+      movies: [],
+      series: [],
+      verPelis: true,
+      verSeries: true
     }
   },
   components: {
@@ -268,8 +188,45 @@ export default {
     clicDiv() {
       console.log("Clic en el div");
     },
+
+    apiMovies() {
+      fetch('https://api.themoviedb.org/3/movie/popular?api_key=802067a2adc0838122b3ec68940d51d0')
+      .then(response => response.json())
+      .then(data => {
+        this.movies = data.results;
+        console.log(this.movies);
+      })
+    },
+
+    apiSeries() {
+      fetch('https://api.themoviedb.org/3/trending/tv/week?api_key=802067a2adc0838122b3ec68940d51d0')
+      .then(response => response.json())
+      .then(data => {
+        this.series = data.results;
+        console.log(this.series);
+      })
+    },
+
+    clickPeliculas() {
+      this.verPelis = true;
+      this.verSeries = false;
+    },
+
+    clickSeries() {
+      this.verPelis = false;
+      this.verSeries = true;
+    },
+
+    clickTodo() {
+      this.verPelis = true;
+      this.verSeries = true;
+    }
   
   },
+  mounted() {
+    this.apiMovies();
+    this.apiSeries();
+  }
 }
 </script>
 

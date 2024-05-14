@@ -2,21 +2,40 @@
     <header>
         <nav class="flex center">
             <ul class="flex center">
-                <li><router-link to="/peliculas">Peliculas</router-link></li>
-                <li><router-link to="/series">Series</router-link></li>
+                <li id="peliculas">Peliculas</li>
+                <li id="series">Series</li>
             </ul>
         </nav>
-        <h1>ITBFLIX</h1>
+        <h1 id="verTodo">ITBFLIX</h1>
     </header>
 </template>
 
 <script>
 export default {
-    name: "header_component"
+    name: "header_component",
+    mounted() {
+    // Attach event listeners when the component is mounted
+    document.getElementById("peliculas").addEventListener("click", this.emitPeliculas);
+    document.getElementById("series").addEventListener("click", this.emitSeries);
+    document.getElementById("verTodo").addEventListener("click", this.emitTodo);
+  },
+  methods: {
+    emitPeliculas() {
+      this.$emit("clickPeliculas");
+    },
+    emitSeries() {
+      this.$emit("clickSeries");
+    },
+    emitTodo() {
+      this.$emit("clickTodo");
+    }
+  }
 }
+
+
 </script>
 
-<style>
+<style scoped>
 header {
     display: flex;
     justify-content: space-between;
@@ -30,6 +49,11 @@ header h1 {
     /* Texto principal blanco */
     animation: pulsate 0.11s ease-in-out infinite alternate;
     font-size: 32px;
+}
+
+header h1:hover {
+    cursor: pointer;
+    
 }
 
 @keyframes pulsate {
@@ -85,6 +109,6 @@ li:hover {
     color: #ffffff;
     /* Texto principal blanco */
     background-color: rgba(0, 255, 204, 0.075);
-    /* Cambiado a un tono de cian */
+    cursor: pointer;
 }
 </style>

@@ -1,9 +1,15 @@
 <template>
-    <div class="serie-container justify-between" @click="$emit('clickSerie')">
+    <div v-if="fromApi" class="serie-container justify-between" @click="$emit('clickSerie')">
+      <img :src=imagen alt="Imagen de la serie" />
+      <h2>{{ titulo }}</h2>
+      <div class="puntuacio">{{ puntuacion }}</div>
+    </div>
+    <div v-else class="serie-container justify-between" @click="$emit('clickSerie')">
       <img :src="require(`../assets/${imagen}`)" alt="Imagen de la serie" />
       <h2>{{ titulo }}</h2>
       <div class="puntuacio">{{ puntuacion }}</div>
     </div>
+
   </template>
   <script>
    export default {
@@ -14,6 +20,7 @@
         imagen: String,
         titulo: String,
         puntuacion: String,
+        fromApi: Boolean
       },
      data() {
         return {};
@@ -36,7 +43,7 @@
 
       border: 1px solid #00ffcc; 
       border-radius: 5px;
-      box-shadow: 0px 0px 12px #00ffcc; 
+      box-shadow: 0px 0px 5px #00ffcc; 
       cursor: pointer;
       transition: 0.3s;
       background-color: #04042e; 
@@ -48,8 +55,7 @@
     }
   
     .serie-container:hover {
-      box-shadow:  -7px 8px 9px #00ffcc; 
-      transform: translate(6px, -8px);
+      box-shadow:  1px 1px 14px #00ffcc; 
     }
   
     .serie-container   img {

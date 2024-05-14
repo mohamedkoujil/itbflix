@@ -9,9 +9,10 @@
         <address>
           <p>Institut Tecnològic de Barcelona 08076194 · c/ Aiguablava 121, 08033 Barcelona · Tlf: 937 070 020 · info@itb.cat</p>
         </address>
-        <div class="copyright">
+        <div class="copyright flex column">
           <p>© Copyright ITBFlix Limited 2023</p>
         </div>
+        
       </div>
     </footer>
 </template>
@@ -22,7 +23,13 @@
   }
 </script>
   
-<style>
+<style scoped>
+.flex {
+    display: flex;
+}
+.column {
+    flex-direction: column;
+}
 footer {
     width: 100%;
     height: auto;
@@ -63,12 +70,15 @@ footer .contacto address {
     height: auto;
     text-align: center;
     color: white;
+    text-shadow: 0 0 4px #00ffcc, 0 0 11px #00ffcc, 0 0 19px #00ffcc, 0 0 40px #00ffcc, 0 0 80px #00ffcc, 0 0 90px #00ffcc, 0 0 100px #00ffcc;
  }
 
 footer .contacto .copyright {
     width: 30%;
     height: auto;
     text-align: center;
-    color: white
+    color: white; 
+    text-shadow: 0 0 4px #00ffcc, 0 0 11px #00ffcc, 0 0 19px #00ffcc, 0 0 40px #00ffcc, 0 0 80px #00ffcc, 0 0 90px #00ffcc, 0 0 100px #00ffcc;
  }
+
 </style>  
