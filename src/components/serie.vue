@@ -1,5 +1,5 @@
 <template>
-    <div v-if="fromApi" class="serie-container justify-between" @click="$emit('clickSerie')">
+    <div v-if="fromApi" class="serie-container justify-between" @click="irAlDetalle">
       <img :src=imagen alt="Imagen de la serie" />
       <h2>{{ titulo }}</h2>
       <div class="puntuacio">{{ puntuacion }}</div>
@@ -20,7 +20,8 @@
         imagen: String,
         titulo: String,
         puntuacion: String,
-        fromApi: Boolean
+        fromApi: Boolean,
+        id: Number,
       },
      data() {
         return {};
@@ -29,6 +30,9 @@
      computed: {},
      // Lista de funciones (métodos) disponibles en el componente Vue.
      methods: {
+      irAlDetalle() {
+        this.$router.push({name: 'detalle', params: {type: 'tv', id: this.id}});
+      }
      },
    };
   </script>
