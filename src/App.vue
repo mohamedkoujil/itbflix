@@ -34,6 +34,30 @@
           @clickPelicula="clicDiv"
         />
       </div>
+      <div class="addMovie">
+        <img @click="this.showFromMovie" src="./assets/simbolo-mas.png" alt="Añadir película" />
+        <h2>Añadir película</h2>
+      </div>
+      <!--Formulari per afegir pel·lícules-->
+      <div v-show="showForm" class="formAddMovie">
+        <form id="addMovieCookies">
+          <input type="text" placeholder="Título de la película" />
+          <input type="text" placeholder="Puntuación" />
+          <input type="text" placeholder="Imagen(link)" />
+          <input type="submit" @click="this.addMovieCookies" value="Añadir"/>
+          <button @click="this.cancelarAddMovie">Cancelar</button>
+        </form>
+      </div>
+
+      <div v-for="peli in pelisCookies" :key="peli">
+        <carta_pelicula 
+          :imagen="peli.split(',')[2]"
+          :titulo="peli.split(',')[0]"
+          :puntuacion="peli.split(',')[1]"
+          :fromApi="true"
+          @clickPelicula="clicDiv"
+        />
+     </div>
     </div>
   </section>
 
@@ -172,7 +196,9 @@ export default {
       movies: [],
       series: [],
       verPelis: true,
-      verSeries: true
+      verSeries: true,
+      showForm: false,
+      pelisCookies: []
     }
   },
   components: {
@@ -220,12 +246,49 @@ export default {
     clickTodo() {
       this.verPelis = true;
       this.verSeries = true;
+    },
+
+    showFromMovie() {
+      this.showForm = true;
+    },
+
+    cancelarAddMovie() {
+      this.showForm = false;
+    },
+
+    addMovieCookies() {
+      console.log("Añadir película");
+      this.showForm = false;
+      let pelis = document.cookie;
+      pelis = this.pelisCookies;
+      let titulo = document.getElementById("addMovieCookies")[0].value;
+      let puntuacion = document.getElementById("addMovieCookies")[1].value;
+      let imagen = document.getElementById("addMovieCookies")[2].value;
+      if (imagen == "") {
+        imagen = "https://i.ytimg.com/vi/rggwKu2-Cy4/hqdefault.jpg";
+      }
+      //Lo pasamos a json para poder guardarlo en las cookies
+      let peli = [titulo, puntuacion, imagen];
+      pelis.push(peli);
+      document.cookie = JSON.stringify(pelis);  
+      this.getCookies();
+      this.cancelarAddMovie();
+    },
+
+    getCookies() {
+      let pelis = document.cookie;
+      if (pelis != "") {
+        this.pelisCookies = JSON.parse(pelis);
+      } else {
+        this.pelisCookies = [];
+      }
     }
   
   },
   mounted() {
     this.apiMovies();
     this.apiSeries();
+    this.getCookies();
   }
 }
 </script>
@@ -275,5 +338,57 @@ h1 {
   border-radius: 5px;
   box-shadow: 0px 0px 12px #00ffcc;
   background-color: #102c54
+}
+
+.addMovie {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 305px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #00ffcc; 
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #00ffcc; 
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #04042e; 
+}
+
+.addMovie:hover {
+  box-shadow:  1px 1px 14px #00ffcc; 
+}
+
+.addMovie img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.addMovie img:hover {
+  filter: brightness(0.8);
+  transition: 0.3s;
+}
+
+.addMovie h2 {
+  color: #00ffcc;
+}
+
+.formAddMovie {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 205px;  
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #00ffcc; 
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #00ffcc; 
+  background-color: #1e3d6f; 
 }
 </style>
