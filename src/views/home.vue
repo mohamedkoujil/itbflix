@@ -3,6 +3,7 @@
         @clickPeliculas="clickPeliculas" 
         @clickSeries="clickSeries"
         @clickTodo="clickTodo"/>
+    <aside_component/>
     <section v-show="verPelis" class="flex wrap center">
     <h1>Películas destacadas</h1>
     <!--Pelicules introduides manualment-->
@@ -30,6 +31,29 @@
           :id="movie.id"
         />
       </div>
+      <div class="addMovie">
+        <img @click="this.showFromMovie" src="../assets/simbolo-mas.png" alt="Añadir película" />
+        <h2>Añadir película</h2>
+      </div>
+      <!--Formulari per afegir pel·lícules-->
+      <div v-show="showForm" class="formAddMovie">
+        <form id="addMovieLocalStorage">
+          <input type="text" placeholder="Título de la película" />
+          <input type="text" placeholder="Puntuación" />
+          <input type="text" placeholder="Imagen(link)" />
+          <input type="submit" @click="this.addMovieLocalStorage" value="Añadir"/>
+          <button @click="this.cancelarAddMovie">Cancelar</button>
+        </form>
+      </div>
+      <div v-for="peli in pelisLocalStorage" :key="peli">
+        <carta_pelicula 
+          :imagen="peli['imagen']"
+          :titulo="peli['titulo']"
+          :puntuacion="peli['puntuacion']"
+          :fromApi="true"
+          @clickPelicula="clicDiv"
+        />
+     </div>
     </div>
   </section>
 
@@ -152,6 +176,7 @@
 
 <script>
 import header_component from '../components/header.vue';
+import aside_component from '../components/aside.vue';
 import carta_pelicula from '../components/pelicula.vue';
 import carta_actor from '../components/actor.vue';
 import carta_serie from '../components/serie.vue';
@@ -165,11 +190,14 @@ export default {
       movies: [],
       series: [],
       verPelis: true,
-      verSeries: true
+      verSeries: true,
+      showForm: false,
+      pelisLocalStorage: []
     }
   },
   components: {
     header_component,
+    aside_component,
     carta_pelicula,
     carta_actor,
     carta_serie,
@@ -211,12 +239,47 @@ export default {
     clickTodo() {
       this.verPelis = true;
       this.verSeries = true;
+    },
+
+    showFromMovie() {
+      this.showForm = true;
+    },
+
+    cancelarAddMovie() {
+      this.showForm = false;
+    },
+
+    addMovieLocalStorage() {
+      console.log("Añadir película");
+      this.showForm = false;
+      //Añadir película al localStorage
+      let pelis = this.pelisLocalStorage;
+      let titulo = document.getElementById("addMovieLocalStorage")[0].value;
+      let puntuacion = document.getElementById("addMovieLocalStorage")[1].value;
+      let imagen = document.getElementById("addMovieLocalStorage")[2].value;
+      if (imagen == "") {
+        imagen = "https://i.ytimg.com/vi/rggwKu2-Cy4/hqdefault.jpg";
+      }
+      pelis.push({titulo: titulo, puntuacion: puntuacion, imagen: imagen});
+      localStorage.setItem("pelis", JSON.stringify(pelis));
+      this.cancelarAddMovie();
+      
+    },
+
+    getLocalStorage() {
+      let pelis = JSON.parse(localStorage.getItem("pelis"));
+      console.log(pelis);
+      if (pelis == null) {
+        this.pelisLocalStorage = [];
+      } else {
+        this.pelisLocalStorage = pelis;
+      }
     }
-  
   },
   mounted() {
     this.apiMovies();
     this.apiSeries();
+    this.getLocalStorage();
   }
 }
 </script>
@@ -240,7 +303,7 @@ h1 {
 }
 
 .wrap {
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
 }
 
 .center{
@@ -266,5 +329,57 @@ h1 {
   border-radius: 5px;
   box-shadow: 0px 0px 12px #00ffcc;
   background-color: #102c54
+}
+
+.addMovie {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 305px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #00ffcc; 
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #00ffcc; 
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #04042e; 
+}
+
+.addMovie:hover {
+  box-shadow:  1px 1px 14px #00ffcc; 
+}
+
+.addMovie img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.addMovie img:hover {
+  filter: brightness(0.8);
+  transition: 0.3s;
+}
+
+.addMovie h2 {
+  color: #00ffcc;
+}
+
+.formAddMovie {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 205px;  
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #00ffcc; 
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #00ffcc; 
+  background-color: #1e3d6f; 
 }
 </style>
