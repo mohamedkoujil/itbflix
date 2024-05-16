@@ -1,5 +1,5 @@
 <template>
-  <div v-if="fromApi" class="peli-container justify-between" @click="$emit('clickPelicula')">
+  <div v-if="fromApi" class="peli-container justify-between" @click="irAlDetalle">
     <img :src=imagen alt="Imagen de la película" />
     <h2>{{ titulo }}</h2>
     <div class="puntuacio">{{ puntuacion }}</div>
@@ -10,6 +10,7 @@
     <div class="puntuacio">{{ puntuacion }}</div>
   </div>
 </template>
+
 <script>
  export default {
    // Establece un nombre al componente. De lo contrario aparece como "Anónimo" en DevTools.
@@ -19,7 +20,8 @@
       imagen: String,
       titulo: String,
       puntuacion: String,
-      fromApi: Boolean
+      fromApi: Boolean,
+      id: Number,
     },
    data() {
       return {};
@@ -28,9 +30,13 @@
    computed: {},
    // Lista de funciones (métodos) disponibles en el componente Vue.
    methods: {
+    irAlDetalle() {
+      this.$router.push({name: 'detalle', params: {type: 'movie', id: this.id}});
+    }
    },
  };
 </script>
+
 <style>
 .peli-container {
   display: flex;

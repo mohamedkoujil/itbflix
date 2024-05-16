@@ -30,9 +30,7 @@ export default {
       this.$emit("clickTodo");
     }
   }
-}
-
-
+};
 </script>
 
 <style scoped>

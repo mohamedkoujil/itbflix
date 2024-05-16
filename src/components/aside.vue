@@ -65,7 +65,7 @@ aside .artículosAside {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #blñack;
+    color: black;
     margin: 10px 0 10px 0;
 }
 

@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import peliculas_detalle from '../views/Peliculas.vue';
-import series_detalle from '../views/Series.vue';
+import home_view from '../views/home.vue';
+import detalle_view from '../views/detalle.vue';
 
 const routes = [
-  { path: '/peliculas', component: peliculas_detalle },
-  { path: '/series', component: series_detalle },
+  { path: '/home', component: home_view, name: 'home' },
+  { path: '/detalle/:type/:id', component: detalle_view, name: 'detalle' },
+  { path: '/', redirect: '/home' },
 ];
 
 const router = createRouter({
