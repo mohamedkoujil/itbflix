@@ -40,24 +40,25 @@
       </div>
       <!--Formulari per afegir pel·lícules-->
       <div v-show="showForm" class="formAddMovie">
-        <form id="addMovieCookies">
+        <form id="addMovieLocalStorage">
           <input type="text" placeholder="Título de la película" />
           <input type="text" placeholder="Puntuación" />
           <input type="text" placeholder="Imagen(link)" />
-          <input type="submit" @click="this.addMovieCookies" value="Añadir"/>
+          <input type="submit" @click="this.addMovieLocalStorage" value="Añadir"/>
           <button @click="this.cancelarAddMovie">Cancelar</button>
         </form>
       </div>
 
-      <div v-for="peli in pelisCookies" :key="peli">
+      <div v-for="peli in pelisLocalStorage" :key="peli">
         <carta_pelicula 
-          :imagen="peli.split(',')[2]"
-          :titulo="peli.split(',')[0]"
-          :puntuacion="peli.split(',')[1]"
+          :imagen="peli['imagen']"
+          :titulo="peli['titulo']"
+          :puntuacion="peli['puntuacion']"
           :fromApi="true"
           @clickPelicula="clicDiv"
         />
      </div>
+     
     </div>
   </section>
 
@@ -198,7 +199,7 @@ export default {
       verPelis: true,
       verSeries: true,
       showForm: false,
-      pelisCookies: []
+      pelisLocalStorage: []
     }
   },
   components: {
@@ -256,39 +257,37 @@ export default {
       this.showForm = false;
     },
 
-    addMovieCookies() {
+    addMovieLocalStorage() {
       console.log("Añadir película");
       this.showForm = false;
-      let pelis = document.cookie;
-      pelis = this.pelisCookies;
-      let titulo = document.getElementById("addMovieCookies")[0].value;
-      let puntuacion = document.getElementById("addMovieCookies")[1].value;
-      let imagen = document.getElementById("addMovieCookies")[2].value;
+      //Añadir película al localStorage
+      let pelis = this.pelisLocalStorage;
+      let titulo = document.getElementById("addMovieLocalStorage")[0].value;
+      let puntuacion = document.getElementById("addMovieLocalStorage")[1].value;
+      let imagen = document.getElementById("addMovieLocalStorage")[2].value;
       if (imagen == "") {
         imagen = "https://i.ytimg.com/vi/rggwKu2-Cy4/hqdefault.jpg";
       }
-      //Lo pasamos a json para poder guardarlo en las cookies
-      let peli = [titulo, puntuacion, imagen];
-      pelis.push(peli);
-      document.cookie = JSON.stringify(pelis);  
-      this.getCookies();
+      pelis.push({titulo: titulo, puntuacion: puntuacion, imagen: imagen});
+      localStorage.setItem("pelis", JSON.stringify(pelis));
       this.cancelarAddMovie();
+      
     },
 
-    getCookies() {
-      let pelis = document.cookie;
-      if (pelis != "") {
-        this.pelisCookies = JSON.parse(pelis);
+    getLocalStorage() {
+      let pelis = JSON.parse(localStorage.getItem("pelis"));
+      console.log(pelis);
+      if (pelis == null) {
+        this.pelisLocalStorage = [];
       } else {
-        this.pelisCookies = [];
+        this.pelisLocalStorage = pelis;
       }
     }
-  
   },
   mounted() {
     this.apiMovies();
     this.apiSeries();
-    this.getCookies();
+    this.getLocalStorage();
   }
 }
 </script>
