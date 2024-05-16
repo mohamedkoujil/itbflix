@@ -3,6 +3,7 @@
         @clickPeliculas="clickPeliculas" 
         @clickSeries="clickSeries"
         @clickTodo="clickTodo"/>
+    <aside_component/>
     <section v-show="verPelis" class="flex wrap center">
     <h1>Películas destacadas</h1>
     <!--Pelicules introduides manualment-->
@@ -175,6 +176,7 @@
 
 <script>
 import header_component from '../components/header.vue';
+import aside_component from '../components/aside.vue';
 import carta_pelicula from '../components/pelicula.vue';
 import carta_actor from '../components/actor.vue';
 import carta_serie from '../components/serie.vue';
@@ -195,6 +197,7 @@ export default {
   },
   components: {
     header_component,
+    aside_component,
     carta_pelicula,
     carta_actor,
     carta_serie,

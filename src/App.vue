@@ -1,17 +1,14 @@
 <template>
-  <aside_component/>
   <router-view/>
   <footer_component />
 </template>
 
 <script>
-import aside_component from './components/aside.vue';
 import footer_component from './components/footer.vue';
 
 export default {
   name: 'App',
   components: {
-    aside_component,
     footer_component
   }
 }

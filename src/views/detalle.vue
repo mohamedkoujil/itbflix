@@ -1,5 +1,6 @@
 <template>
   <header_component2/>
+  <aside_component/>
   <div v-if="item" class="detalle-container">
     <h1>{{ item.title || item.name }}</h1>
     <div class="detalle-content">
@@ -17,6 +18,7 @@
 
 <script>
 import header_component2 from '../components/header2.vue';
+import aside_component from '../components/aside.vue';
 export default {
   name: 'detalle_view',
   data() {
@@ -26,6 +28,7 @@ export default {
   },
   components: {
     header_component2,
+    aside_component,
   },
   mounted() {
     const { type, id } = this.$route.params;
