@@ -1,0 +1,19 @@
+/* Importar la fuente SD Dystopian */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+/* Estilos */
+/*neon style*/
+body {
+    background: #04042e; /* Cambiado a un azul oscuro */
+    color: #ffffff; /* Texto principal blanco */
+    height: 100vh;
+    margin: 0 20px 0 20px;
+}
+
+* {
+    font-family: 'Orbitron', sans-serif;
+}
+
+div#app {
+    margin-top: -10px;
+}
